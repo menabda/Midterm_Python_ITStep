@@ -1,29 +1,32 @@
-while True:
-    n1 = input("Enter first number: ")
-    n2 = input("Enter second number: ")
-    operation = input("Choose Operation: +, -, *, /\n")
+n1 = n2 = ""
 
-    try:
-        n1 = float(n1)
-        n2 = float(n2)
-    except ValueError:
-        print("Please enter valid numbers.")
-        continue
+while type(n1) not in (int, float):
+  try:
+    n1 = eval(input("Enter first number: "))
+  except (NameError, SyntaxError):
+    print("Enter a valid number\n")
 
-    if operation == "+":
-        print(n1 + n2)
-        break
-    elif operation == "-":
-        print(n1 - n2)
-        break
-    elif operation == "*":
-        print(n1 * n2)
-        break
-    elif operation == "/":
-        if n2 != 0:
-            print(n1 / n2)
-        else:
-            print("Division by zero not possible")
-        break
+while type(n2) not in (int, float):
+  try:
+    n2 = eval(input("Enter second number: "))
+  except (NameError, SyntaxError):
+    print("Enter a valid number\n")
+
+operation = input("Choose Operation (+, -, *, /): ")
+
+if operation == '+':
+  print(f"{n1} + {n2} = {n1 + n2}")
+elif operation == '-':
+  print(f"{n1} - {n2} = {n1 - n2}")
+elif operation == '*':
+  print(f"{n1} * {n2} = {n1 * n2}")
+elif operation == '/':
+  if n2 != 0:
+    if n1 % n2 == 0:
+      print(f"{n1} / {n2} = {int(n1 / n2)}")
     else:
-        print("Invalid Operation")
+      print(f"{n1} / {n2} = {n1 / n2}")
+  else:
+    print(f"{n1} / {n2} = Division by zero...")
+else:
+  print("Invalid opration")
