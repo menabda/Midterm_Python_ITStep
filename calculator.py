@@ -27,6 +27,6 @@ elif operation == '/':
     else:
       print(f"{n1} / {n2} = {n1 / n2}")
   else:
-    print(f"{n1} / {n2} = Division by zero...")
+    print(f"{n1} / {n2} = Division by zero not possible")
 else:
   print("Invalid opration")
